@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="div_nav">
+            <div><a href="./">
+                    <h3>行動查核表</h3>
+                </a>
+            </div>
+
+            <div class="divNav_right">
+                <ul>
+                    <a href="./history.html">
+                        <h3>原始紀錄</h3>
+                    </a>
+
+                    <!-- <li>
+          <a href="/">
+            <i class="fas fa-folder-plus"></i>
+          </a>
+          <a href="/">
+            <i class="far fa-chart-bar"></i>
+          </a>
+        </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar END-->
+
+    <div>
+        <label for="">填表人
+            <select name="" id="user">
+                <option value="1">高煜恆</option>
+                <option value="2">許智絜</option>
+                <option value="3">康豐榮</option>
+                <option value="4">邱棋逢</option>
+                <option value="5">何芷萱</option>
+                <option value="6">張家瑀</option>
+            </select>
+        </label>
+        <button id="searchBtn">search</button>
+    </div>
+    <ol id="historyRender"></ol>
+    <!-- Bootstrap Introduction -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhtEk4p4qqJFciYJrX-FZkx_ARoTs2jD0",
+            authDomain: "action-sheet-39e67.firebaseapp.com",
+            databaseURL: "https://action-sheet-39e67.firebaseio.com",
+            projectId: "action-sheet-39e67",
+            storageBucket: "action-sheet-39e67.appspot.com",
+            messagingSenderId: "648430201900",
+            appId: "1:648430201900:web:c36a6e3742052a80f73589",
+            measurementId: "G-FBR754JSX4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
+    <!-- Firebase END -->
+    <script src="./main.js"></script>
+</body>
+
+</html>

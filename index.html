@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Action Note</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="div_nav">
+      <div><a href="/">
+          <h3>行動查核表</h3>
+        </a>
+      </div>
+
+      <div class="divNav_right">
+        <ul>
+          <a href="./history.html">
+            <h3>原始紀錄</h3>
+          </a>
+
+          <!-- <li>
+          <a href="/">
+            <i class="fas fa-folder-plus"></i>
+          </a>
+          <a href="/">
+            <i class="far fa-chart-bar"></i>
+          </a>
+        </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar END-->
+  <!-- header -->
+  <div id="header" class="jumbotron header-div">
+    <div class="container">
+      <center>
+        <h1>行動查核表</h1>
+        <p>每日行動量檢視表</p>
+      </center>
+
+    </div>
+  </div>
+  <!-- header -->
+  <!-- form -->
+  <div class="section_outer">
+    <!-- formform -->
+    <ol id="demoListOL"></ol>
+    <form id="demoForm">
+      <input id="demoFormName" type="text" placeholder="Name ...">
+      <br>
+      <input id="demoFormAge" type="number" placeholder="Age ...">
+      <br>
+      <button>Submit</button>
+    </form>
+    <!-- formform END-->
+    <form id="formsubmit">
+      <div>
+        <label for="">填表人
+          <select name="" id="user">
+            <option value="1">高煜恆</option>
+            <option value="2">許智絜</option>
+            <option value="3">康豐榮</option>
+            <option value="4">邱棋逢</option>
+            <option value="5">何芷萱</option>
+            <option value="6">張家瑀</option>
+          </select>
+        </label>
+      </div>
+      <br>
+      <!-- sectionA -->
+      <section class="container A-container">
+        <div class=" container">
+          <table class="table table-bordered A-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>3~5個人有效聊天及邀約</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <th>1</th>
+                <td>
+                  <input id="secA1" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">2</th>
+                <td>
+                  <input id="secA2" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">3</th>
+                <td>
+                  <input id="secA3" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">4</th>
+                <td>
+                  <input id="secA4" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">5</th>
+                <td>
+                  <input id="secA5" type="text">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <br>
+      <ol id="secARender"></ol>
+      <!-- sectionA END -->
+      <!-- sectionB -->
+      <section>
+        <div class="B-div">
+          <table class="table B-table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">留言互動20人</th>
+              </tr>
+              <tr>
+                <th scope="col"></th>
+                <th>姓名/帳號</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <th scope="col">1</th>
+                <td>
+                  <input id="secB1" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">2</th>
+                <td>
+                  <input id="secB2" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">3</th>
+                <td>
+                  <input id="secB3" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">4</th>
+                <td>
+                  <input id="secB4" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th scope="col">5</th>
+                <td>
+                  <input id="secB5" type="text">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <br>
+      <!-- sectionB END -->
+      <!-- sectionC -->
+      <section>
+        <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>貼文/Post</th>
+                <th></th>
+              </tr>
+              <tr>
+                <th>數量/篇</th>
+                <th>主題</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <td>
+                  <select name="" id="postNumber">
+                    <option value="">0</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="" id="selC">
+                    <option value="">生活紀錄</option>
+                    <option value="">愛用產品</option>
+                    <option value="">事業</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <br>
+      <!-- sectionC END -->
+      <!-- sectionD -->
+      <section>
+        <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>限時動態/story</th>
+                <th></th>
+              </tr>
+              <tr>
+                <th>數量/篇</th>
+                <th>主題</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <td>
+                  <select name="" id="storyN1">
+                    <option value="">0</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="" id="selD1">
+                    <option value="">生活紀錄</option>
+                    <option value="">愛用產品</option>
+                    <option value="">事業</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="" id="storyN2">
+                    <option value="">0</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="" id="selD2">
+                    <option value="">生活紀錄</option>
+                    <option value="">愛用產品</option>
+                    <option value="">事業</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- sectionD END -->
+      <!-- sectionE -->
+      <section>
+        <h3>行動總結</h2>
+          <!-- <name="selEName"> -->
+
+          <label for="selECheck1"><input type="checkbox" name="selEName" id="selECheck1">留言互動20人（發文或限時動態回覆）</label>
+          <br>
+          <label for="selECheck2"><input type="checkbox" name="selEName" id="selECheck2">按讚人數20人</label>
+          <br>
+          <label for="selECheck3"><input type="checkbox" name="selEName" id="selECheck3">加好友100人</label>
+          <br>
+          <label for="selECheck4"><input type="checkbox" name="selEName" id="selECheck4">發文1~2</label>
+          <br>
+          <label for="selECheck5"><input type="checkbox" name="selEName" id="selECheck5">限時動態 2~5種（保持永遠有限動的狀態）</label>
+          <br>
+          <label for="selECheck6"><input type="checkbox" name="selEName" id="selECheck6">敲3~5個人有效聊天及邀約（可同人或不同人）</label>
+          <br>
+          <label for="selECheck7"><input type="checkbox" name="selEName" id="selECheck7">群組分享每日產品</label>
+          <!-- </form> -->
+
+      </section>
+      <!-- sectionE END -->
+      <br>
+      <!-- <button type="submit" id="action_submit">
+        submit
+      </button> -->
+      <input type="submit" value="submit">
+    </form>
+  </div>
+  <!-- <textarea name="" id="textarea" cols="30" rows="10" placeholder="type in here"></textarea>
+  <button id="btn_textarea" onclick="submitClick()">submit</button> -->
+
+  <!-- Bootstrap Introduction -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- Firebase -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhtEk4p4qqJFciYJrX-FZkx_ARoTs2jD0",
+      authDomain: "action-sheet-39e67.firebaseapp.com",
+      databaseURL: "https://action-sheet-39e67.firebaseio.com",
+      projectId: "action-sheet-39e67",
+      storageBucket: "action-sheet-39e67.appspot.com",
+      messagingSenderId: "648430201900",
+      appId: "1:648430201900:web:c36a6e3742052a80f73589",
+      measurementId: "G-FBR754JSX4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+  </script>
+  <!-- Firebase END -->
+
+  <script src="./main.js"></script>
+</body>
+
+</html>

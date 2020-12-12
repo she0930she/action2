@@ -1,0 +1,50 @@
+.navbar {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+}
+.div_nav{
+    display: flex;
+}
+.divNav_right{
+    float:right;
+}
+
+#header {
+    padding: 40px 0px;
+    margin: 0px;
+    background-image: url('/assets/images/img1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: rgb(134, 128, 128);
+    position: relative;
+    border-radius: 0;
+}
+.A-div{
+width:50%;
+display: flex;
+align-items: center;
+}
+.tbody{
+    width:50%;
+}
+.title_border{
+    /* border-bottom: 2pt solid black; */
+    /* text-align: center; */
+    /* width:50%; */
+}
+table{
+    /* border-collapse: collapse; */
+    width:30%;
+}
+
+/* .C-table table, .C-table th, .C-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+} */
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
