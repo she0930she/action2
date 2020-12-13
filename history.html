@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+    <!-- moment -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"> -->
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -38,8 +40,11 @@
         </div>
     </nav>
     <!-- navbar END-->
-
-    <div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container text-center">
         <label for="">填表人
             <select name="" id="user">
                 <option value="1">高煜恆</option>
@@ -50,9 +55,13 @@
                 <option value="6">張家瑀</option>
             </select>
         </label>
-        <button id="searchBtn">search</button>
+        <button class="btn btn-primary btn-sm" id="searchBtn">search</button>
+
     </div>
-    <ol id="historyRender"></ol>
+    <div class="container text-left">
+        <ol id="historyRender"></ol>
+    </div>
+
     <!-- Bootstrap Introduction -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -91,6 +100,9 @@
         const db = firebase.firestore();
     </script>
     <!-- Firebase END -->
+    <!-- moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script src="./main.js"></script>
 </body>
 

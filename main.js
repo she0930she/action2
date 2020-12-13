@@ -21,10 +21,12 @@ $("#formsubmit").submit(function (e) {
   const selD2 = $("#selD2 option:selected").text()
   const selE = [];
   document.querySelectorAll('input[name=selEName]').forEach(input => {
+    console.log("dir")
     console.dir(input);
-    let d = 'off';
+    let d = 'No';
     if (input.checked) {
-      d = input.value;
+      //d = input.value;
+      d = "Yes"
     }
     selE.push(d);
   });
@@ -61,9 +63,14 @@ $("#formsubmit").submit(function (e) {
   db.collection("sectionA").add(obj)
     .then(() => {
       console.log("success")
+      alert('已成功上傳！可以至 "原始資料"查詢')
+      //TODO:how to disable preventdefault??
+      $("input").val("");
+
     })
     .catch(err => {
       console.log(err)
+      alert("上傳失敗，請再傳送一次！")
     });
 });
 
@@ -161,64 +168,9 @@ db.collection("demo").get()
     console.log(err);
   })
 
-// db.collection("demo")
-//   .orderBy("createdAt", "desc")
-//   .onSnapshot(collection => {
-//     const demoList = [];
-//     collection.forEach(doc => {
-//       const demo = doc.data();
-//       demoList.push(demo);
-//     });
-//     console.log(demoList);
-//     $('#demoListOL').empty();
-//     demoList.forEach(demo => {
-//       $('#demoListOL').append(`<li>
-//       Name: ${demo.name} Age: ${demo.age}
-//       </li>`);
-//     })
-
-//   })
-
-// db.collection("cities").doc("LA").set({
-//   name: "Los Angeles",
-//   state: "CA",
-//   country: "USA",
-//   capital: true
-// })
-//   .then(function () {
-//     console.log("Document successfully written!");
-//   })
-//   .catch(function (error) {
-//     console.error("Error writing document: ", error);
-//   });
-
-// db.collection("cities")
-//   .where("capital", "==", true)
-//   .get()
-//   .then(function (querySnapshot) {
-//     querySnapshot.forEach(function (doc) {
-//       // doc.data() is never undefined for query doc snapshots
-//       console.log(doc.id, " => ", doc.data());
-//     });
-//   })
-//   .catch(function (error) {
-//     console.log("Error getting documents: ", error);
-//   });
-
-
-
-//window.alert("this is js!!")
-// const textarea = document.getElementById("textarea")
-// const btn_textarea = document.getElementById("btn_textarea")
-
-// function submitClick() {
-//   window.alert("btn_textarea is working")
-//   const firebaseRef = firebase.database().ref()
-//   firebaseRef.child("text").set("some value")
-// }
-
 
 //History.index
+
 $("#searchBtn").click(function (e) {
   //window.alert("this is js!!")
   console.log("searchBtn")
@@ -233,103 +185,138 @@ $("#searchBtn").click(function (e) {
     .get()
     .then(collection => {
       collection.forEach(doc => {
+        const id = doc.id;
         const data = doc.data();
         console.log('[data]', data);
-        $('#historyRender').append(`<li>
-        <li>${data.user}
+        let now = data.createdAt
+        let time = moment(now).format("YYYY.MM.DD")
+        //TODO:add moment
+        $('#historyRender').append(`
+        <div class="">
+        <br>
+        <li>${data.user} 
+        <button class="btn btn-outline-danger btn-sm delete-btn" data-id="${id}">刪除這筆資料</button>
+        ${time}
+        <br>
         <h4>3~5個人有效聊天及邀約</h4>
-        1:${data.secA1}  ,2:${data.secA2}  ,3:${data.secA3}
-        4:${data.secA4}
+        1:${data.secA1}  <br>
+        2:${data.secA2}  <br>
+        3:${data.secA3} <br>
+        4:${data.secA4} <br>
         5:${data.secA5}
         <h4>留言互動20人</h4>
-        1:${data.secB1},2:${data.secB2},3:${data.secB3}
-        4:${data.secB4}
+        1:${data.secB1}       <br>
+        2:${data.secB2}       <br>
+        3:${data.secB3}      <br>
+        4:${data.secB4}      <br>
         5:${data.secB5}
         <h4>貼文/Post</h4>
-        貼文數：${data.postNumber},  主題：${data.selC}
+        貼文數：${data.postNumber} <br>
+        主題：${data.selC}
         <h4>限時動態/story</h4>
-        動態數：${data.storyN1},  主題：${data.selD1}
+        動態數：${data.storyN1},  <br>
+        主題：${data.selD1}
         <br>
-        動態數：${data.storyN2},  主題：${data.selD2}
+        動態數：${data.storyN2},  <br>
+        主題：${data.selD2}
         <br>
         <h4>行動總結</h4>
-        留言互動20人（發文或限時動態回覆）:${data.selE[0]},
+        留言互動20人（發文或限時動態回覆）:  ${data.selE[0]}
         <br>
-        按讚人數20人:${data.selE[1]},
+        按讚人數20人:  ${data.selE[1]}
         <br>
-        加好友100人:${data.selE[2]},
+        加好友100人:  ${data.selE[2]}
         <br>
-        發文1~2:${data.selE[3]},
+        發文1~2:  ${data.selE[3]}
         <br>
-        限時動態 2~5種（保持永遠有限動的狀態）:${data.selE[4]},
+        限時動態 2~5種（保持永遠有限動的狀態）:  ${data.selE[4]}
         <br>
-        敲3~5個人有效聊天及邀約（可同人或不同人）:${data.selE[5]},
+        敲3~5個人有效聊天及邀約（可同人或不同人）:  ${data.selE[5]}
         <br>
-        群組分享每日產品:${data.selE[6]}
+        群組分享每日產品:  ${data.selE[6]}
+        
         </li>
-        <br>
-        </li>`)
+        </div>
+        `)
       })
     })
     .catch(err => {
       console.log('[err]', err);
     })
 })
-db.collection("sectionA").get()
-  .then(collection => {
-    const secRender = []
-    collection.forEach(doc => {
-      //console.log("doc.data()", doc.data())
-      const userOnDocu = doc.data().user
-      console.log("userOnDocu", userOnDocu)
-      if (user == userOnDocu) {
-        console.log("sec", sec)
-        const sec = doc.data();
-        secRender.push(sec);
-        //console.log("secRender", secRender)
+//TODO:選到deleteBtn, and delete
+$("body").delegate(".delete-btn", "click", function () {
+  const id = $(this).attr("data-id");
 
-        //render the document only user specific
-        secRender.forEach(oneDocu => {
-          $("#historyRender").append(`
-          <li>${oneDocu.user}
-          <h4>3~5個人有效聊天及邀約</h4>
-          1:${oneDocu.secA1}  ,2:${oneDocu.secA2}  ,3:${oneDocu.secA3}
-          4:${oneDocu.secA4}
-          5:${oneDocu.secA5}
-          <h4>留言互動20人</h4>
-          1:${oneDocu.secB1},2:${oneDocu.secB2},3:${oneDocu.secB3}
-          4:${oneDocu.secB4}
-          5:${oneDocu.secB5}
-          <h4>貼文/Post</h4>
-          貼文數：${oneDocu.postNumber},  主題：${oneDocu.selC}
-          <h4>限時動態/story</h4>
-          動態數：${oneDocu.storyN1},  主題：${oneDocu.selD1}
-          <br>
-          動態數：${oneDocu.storyN2},  主題：${oneDocu.selD2}
-          <br>
-          <h4>行動總結</h4>
-          留言互動20人（發文或限時動態回覆）:${oneDocu.selE[0]},
-          <br>
-          按讚人數20人:${oneDocu.selE[1]},
-          <br>
-          加好友100人:${oneDocu.selE[2]},
-          <br>
-          發文1~2:${oneDocu.selE[3]},
-          <br>
-          限時動態 2~5種（保持永遠有限動的狀態）:${oneDocu.selE[4]},
-          <br>
-          敲3~5個人有效聊天及邀約（可同人或不同人）:${oneDocu.selE[5]},
-          <br>
-          群組分享每日產品:${oneDocu.selE[6]}
-          </li>
-          <br>
-          `);
-        })
-      }
-      console.log("secRender", secRender)
+  db
+    .doc(`sectionA/${id}`)
+    .delete()
+    .then(res => {
+      console.log('success!')
+      alert("成功刪除了，請再更新一次")
+      location.reload();
     })
+    .catch(err => {
+      console.log('err', err);
+    })
+})
+//reload
 
-  })
-  .catch(err => {
-    console.log("err", err)
-  })
+// db.collection("sectionA").get()
+//   .then(collection => {
+//     const secRender = []
+//     collection.forEach(doc => {
+//       //console.log("doc.data()", doc.data())
+//       const userOnDocu = doc.data().user
+//       console.log("userOnDocu", userOnDocu)
+//       if (user == userOnDocu) {
+//         console.log("sec", sec)
+//         const sec = doc.data();
+//         secRender.push(sec);
+//         //console.log("secRender", secRender)
+
+//         //render the document only user specific
+//         secRender.forEach(oneDocu => {
+//           $("#historyRender").append(`
+//           <li>${oneDocu.user}
+//           <h4>3~5個人有效聊天及邀約</h4>
+//           1:${oneDocu.secA1}  ,2:${oneDocu.secA2}  ,3:${oneDocu.secA3}
+//           4:${oneDocu.secA4}
+//           5:${oneDocu.secA5}
+//           <h4>留言互動20人</h4>
+//           1:${oneDocu.secB1},2:${oneDocu.secB2},3:${oneDocu.secB3}
+//           4:${oneDocu.secB4}
+//           5:${oneDocu.secB5}
+//           <h4>貼文/Post</h4>
+//           貼文數：${oneDocu.postNumber},  主題：${oneDocu.selC}
+//           <h4>限時動態/story</h4>
+//           動態數：${oneDocu.storyN1},  主題：${oneDocu.selD1}
+//           <br>
+//           動態數：${oneDocu.storyN2},  主題：${oneDocu.selD2}
+//           <br>
+//           <h4>行動總結</h4>
+//           留言互動20人（發文或限時動態回覆）:${oneDocu.selE[0]},
+//           <br>
+//           按讚人數20人:${oneDocu.selE[1]},
+//           <br>
+//           加好友100人:${oneDocu.selE[2]},
+//           <br>
+//           發文1~2:${oneDocu.selE[3]},
+//           <br>
+//           限時動態 2~5種（保持永遠有限動的狀態）:${oneDocu.selE[4]},
+//           <br>
+//           敲3~5個人有效聊天及邀約（可同人或不同人）:${oneDocu.selE[5]},
+//           <br>
+//           群組分享每日產品:${oneDocu.selE[6]}
+//           </li>
+//           <br>
+//           `);
+//         })
+//       }
+//       console.log("secRender", secRender)
+//     })
+
+//   })
+//   .catch(err => {
+//     console.log("err", err)
+//   })

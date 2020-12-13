@@ -48,3 +48,15 @@ td, th {
   /* tr:nth-child(even) {
     background-color: #dddddd;
   } */
+
+/* .navbar-toggler{
+    display:none;
+}
+.navbar-list.active{
+    left:0;
+}
+@media(max-width:600px){
+    .navbar-toggler{
+        display:block;
+        }  
+  } */
